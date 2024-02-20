@@ -27,7 +27,7 @@ class CalculatorApp(QWidget):
             grid_layout = QHBoxLayout()
             for button_text in line:
                 button = QPushButton(button_text)
-                button.clicked.connect(lambda _=None, text=button_text: (print(button_text),self.handle_button_click(text)))
+                button.clicked.connect(lambda _=None, text=button_text: self.handle_button_click(text))
                 grid_layout.addWidget(button)
 
             buttons_layout.addLayout(grid_layout)
@@ -45,7 +45,6 @@ class CalculatorApp(QWidget):
         self.show()
 
     def handle_button_click(self, button_text):
-        QMessageBox.warning(self, 'Warning', str(button_text))
 
         if button_text == '=':
             self.calculate()
