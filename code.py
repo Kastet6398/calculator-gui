@@ -32,6 +32,7 @@ class CalculatorApp(QWidget):
 
             buttons_layout.addLayout(grid_layout)
 
+
         main_layout = QVBoxLayout()
         main_layout.addWidget(self.expression_label)
         main_layout.addWidget(self.expression_input)
