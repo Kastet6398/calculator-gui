@@ -1,5 +1,5 @@
 import sys
-from PySide2.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton
+from PySide2.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
 import requests
 
 class CalculatorApp(QWidget):
@@ -27,7 +27,7 @@ class CalculatorApp(QWidget):
             grid_layout = QHBoxLayout()
             for button_text in line:
                 button = QPushButton(button_text)
-                button.clicked.connect(lambda _, text=button_text: self.handle_button_click(text))
+                button.clicked.connect(lambda text=button_text: self.handle_button_click(text))
                 grid_layout.addWidget(button)
 
             buttons_layout.addLayout(grid_layout)
@@ -44,6 +44,8 @@ class CalculatorApp(QWidget):
         self.show()
 
     def handle_button_click(self, button_text):
+        QMessageBox.warning(self, 'Warning', str(button_text))
+
         if button_text == '=':
             self.calculate()
         else:
