@@ -27,7 +27,7 @@ class CalculatorApp(QWidget):
             grid_layout = QHBoxLayout()
             for button_text in line:
                 button = QPushButton(button_text)
-                button.clicked.connect(lambda text=button_text: (print(button_text),self.handle_button_click(text)))
+                button.clicked.connect(lambda ttext=button_text: (print(button_text),self.handle_button_click(ttext)))
                 grid_layout.addWidget(button)
 
             buttons_layout.addLayout(grid_layout)
