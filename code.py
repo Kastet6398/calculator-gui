@@ -51,7 +51,6 @@ class CalculatorApp(QWidget):
             self.calculate()
         else:
             current_text = self.expression_input.text()
-            print(button_text)
             self.expression_input.setText(current_text + button_text)
 
     def calculate(self):
